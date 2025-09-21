@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Exome Sequencing Pipeline - Ritam Halder
 # Usage: bash exome_pipeline.sh
 
