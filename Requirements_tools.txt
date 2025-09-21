@@ -1,0 +1,1 @@
+bioconda bwa samtools picard gatk4 fastqc multiqc trimmomatic
