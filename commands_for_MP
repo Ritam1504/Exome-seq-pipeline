@@ -1,0 +1,47 @@
+# Collect Data From 1000Genome Site
+
+https://www.internationalgenome.org/data-portal/sample
+
+# Run FASTQC
+
+fastqc SRR042441_1.filt.fastq.gz
+
+# For Trimmomatic use 
+
+# Install JAVA -   
+
+sudo apt install default-jre
+
+# Trimmomatic and its adapter files are located inside the Conda environment:
+
+```
+/home/ritam-24/miniconda3/pkgs/trimmomatic-0.39-hdfd78af_2/share/trimmomatic-0.39-2/adapters/TruSeq3-PE-2.fa
+
+trimmomatic PE -threads 4 \
+/home/ritam-24/Documents/G1000/Genome_2/SRR042441_1.filt.fastq.gz \
+/home/ritam-24/Documents/G1000/Genome_2/SRR042441_2.filt.fastq.gz \
+/home/ritam-24/Documents/G1000/trimmed_data/SRR042441_1.paired.fq.gz \
+/home/ritam-24/Documents/G1000/trimmed_data/SRR042441_1.unpaired.fq.gz \
+/home/ritam-24/Documents/G1000/trimmed_data/SRR042441_2.paired.fq.gz \
+/home/ritam-24/Documents/G1000/trimmed_data/SRR042441_2.unpaired.fq.gz \
+ILLUMINACLIP:/home/ritam-24/miniconda3/pkgs/trimmomatic-0.39-hdfd78af_2/share/trimmomatic-0.39-2/adapters/TruSeq3-SE.fa:2:30:10 \
+LEADING:3 TRAILING:3 SLIDINGWINDOW:4:20 MINLEN:36
+
+
+#Again    # Run FASTQC
+
+fastqc SRR042441_1.filt.fastq.gz
+
+
+# Download  hg38 from the below link:-
+
+http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/GRCh38_reference_genome/
+
+# Download command:-
+
+aria2c -x 16 -s 16 -c http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/GRCh38_reference_genome/GRCh38_full_analysis_set_plus_decoy_hla.fa
+
+
+bwa mem hg38.fa
+
+
