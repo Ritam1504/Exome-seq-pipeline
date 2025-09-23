@@ -32,11 +32,15 @@ multiqc qc/ -o qc/
 # ========= STEP 2: Trimming =========
 echo ">>> Trimming adapters with Trimmomatic..."
 trimmomatic PE -threads 4 \
-  data/sample_R1.fastq.gz data/sample_R2.fastq.gz \
-  trimmed/sample_R1.paired.fq.gz trimmed/sample_R1.unpaired.fq.gz \
-  trimmed/sample_R2.paired.fq.gz trimmed/sample_R2.unpaired.fq.gz \
-  ILLUMINACLIP:/usr/share/trimmomatic/adapters/TruSeq3-PE.fa:2:30:10 \
-  LEADING:3 TRAILING:3 SLIDINGWINDOW:4:20 MINLEN:36
+/home/ritam-24/Documents/G1000/Genome_2/SRR042441_1.filt.fastq.gz \
+/home/ritam-24/Documents/G1000/Genome_2/SRR042441_2.filt.fastq.gz \
+/home/ritam-24/Documents/G1000/trimmed_data/SRR042441_1.paired.fq.gz \
+/home/ritam-24/Documents/G1000/trimmed_data/SRR042441_1.unpaired.fq.gz \
+/home/ritam-24/Documents/G1000/trimmed_data/SRR042441_2.paired.fq.gz \
+/home/ritam-24/Documents/G1000/trimmed_data/SRR042441_2.unpaired.fq.gz \
+ILLUMINACLIP:/home/ritam-24/miniconda3/pkgs/trimmomatic-0.39-hdfd78af_2/share/trimmomatic-0.39-2/adapters/TruSeq3-SE.fa:2:30:10 \
+LEADING:3 TRAILING:3 SLIDINGWINDOW:4:20 MINLEN:36
+
 
 # ========= STEP 3: Alignment =========
 echo ">>> Aligning reads with BWA MEM..."
